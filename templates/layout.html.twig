@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<header>
+		<h1>Hello World</h1>
+	</header>
+
+	<main>
+		{# Ici on injecte le contenu des pages #}
+		{% block content %}{% endblock content %}
+	</main>
+
+	<footer></footer>
+{% endblock body %}

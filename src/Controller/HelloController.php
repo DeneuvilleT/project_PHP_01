@@ -9,28 +9,60 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/hello')]
 class HelloController extends AbstractController
 {
-   #[Route('/', name:'hello_main')]
-   public function main():Response
+   #[Route(
+      '/',
+      name: 'hello_main',
+      methods:["GET"],
+   )]
+   public function main(): Response
    {
-      $rand = rand(0,1024);
-      die("coucou, $rand");
-      // return new Response(content: "coucou");
+      $rand = rand(0, 1024);
+      $toto = 'test';
+      return $this->render(
+         'hello/main.html.twig',
+         [
+            'rand' => $rand,
+            // 'toto' => $toto,
+            // Test pour le IF de main.html.twig
+         ]
+      );
    }
 
-   #[Route('/{number}', name:'hello_number', requirements: ["number"=> '\d+'])]
-   // Avec le REGEX la valeur doit être un nombre
-   public function getNumber(int $number):Response
-   // Typé si voulu
+
+   /** Avec le REGEX la valeur doit être un nombre */
+
+   /** Il existe aussi cette syntaxe #[Route('/{number<\d+>}', name:'hello_number')] */ 
+   #[Route(
+      '/{number}',
+      name: 'hello_number',
+      requirements: [
+         "number" => '\d+',
+      ],
+      methods: ["GET"],
+   )]
+   public function getNumber(int $number): Response
    {
-      die("coucou, $number");
-      // return new Response(content: "coucou, $number");
+      return $this->render(
+         'hello/number.html.twig',
+         [
+            'number' => $number,
+         ]
+      );
    }
 
-   #[Route('/{string}', name:'hello_string')]
-   public function getString(string $string):Response
-   // Typé si voulu
+
+   #[Route(
+      '/{string}',
+      name: 'hello_string',
+      methods: ["GET"],
+   )]
+   public function getString(string $string): Response
    {
-      die("coucou, $string");
-      // return new Response(content: "coucou, $number");
+      return $this->render(
+         'hello/string.html.twig',
+         [
+            'string' => $string,
+         ]
+      );
    }
 }

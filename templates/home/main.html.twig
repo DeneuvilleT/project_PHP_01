@@ -1,0 +1,73 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	<h2>
+		Accueil
+	</h2>
+
+
+	{# Path Twig Symfony #}
+	<nav>
+		<a href="{{ path('hello_main') }}">
+			Hello Main
+		</a>
+		<a href="{{ path( 'hello_number', { number: 42 } ) }}">
+			Hello Number 42
+		</a>
+		<a href="{{ path( 'hello_string', { string: 'patou' } ) }}">
+			Hello Patou
+		</a>
+	</nav>
+
+
+	{# Filtres Twig #}
+	<hr>
+	<p>
+		Nous sommes le
+		{{'now'|date("d/m/Y H:i:s")}}
+	</p>
+
+	<p>
+		Test Uppercase :
+		{{'abcdefghijklomnpqrstuvxyz'|upper}}
+		<br>
+		Test Slice :
+		{{'abcdefghijklomnpqrstuvxyz'|slice(5,15)}}
+	</p>
+
+
+	{# Variable et escape HTML #}
+	<hr>
+	{% set myTemplateVar = "<h1>HTML en chaine de caractére</h1>" %}
+	<h3>
+		filtre html (par défaut) :
+	</h3>
+
+	{{myTemplateVar}}
+
+	<h3>
+		sans filtre html :
+		{{myTemplateVar | raw}}
+	</h3>
+
+	<hr>
+
+
+	<div>
+		<ul>
+			{% for key,user in myArray %}
+				<li>{{key}}:{{user}}</li>
+			{% endfor %}
+		</ul>
+
+		<ul>
+			{% for i in 0..15 %}
+				<li>Numéro
+					{{i}}</li>
+			{% endfor %}
+		</ul>
+
+
+	</div>
+
+{% endblock %}

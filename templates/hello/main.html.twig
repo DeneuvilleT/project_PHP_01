@@ -1,0 +1,36 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	{{parent()}}
+	- randomNumber
+{% endblock %}
+
+
+{% block content %}
+	<p>Le chiffre random est :
+		{{rand}}</p>
+
+
+{# IF ELSE twig #}
+	{% if rand % 7 == 0 %}
+		<p>C'est un multiple de 7</p>
+	{% else %}
+		<p>Ce n'est pas un multiple de 7</p>
+	{% endif %}
+
+
+{# Test variable non défini twig #}
+	<div>
+		{% if toto is defined %}
+
+			{{toto}}
+
+		{% else %}
+			<p>La variable n'est pas définie</p>
+
+		{% endif %}
+	</div>
+
+
+
+{% endblock %}
