@@ -34,17 +34,21 @@ main {
    padding: 30px;
 }
 
+header h1 {
+   text-decoration: underline;
+   color: whitesmoke;
+}
+
 h2 {
    color: chocolate;
    text-decoration: underline;
 }
 
-h2 > p {
-   color: black;
-   text-decoration: none;
-}
-
 h3 {
    color: darkblue;
-   text-decoration: underline;
+   text-decoration: underline !important;
+}
+
+#players {
+   flex-direction: column;
 }

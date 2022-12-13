@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	{{parent()}}
+	- New Player
+{% endblock %}
+
+{% block content %}
+
+	<div>
+		{# Fonction Twig #}
+		{{form_start(playerForm, {attr:{
+         'novalidate':'novalidate'
+			}})
+		}}
+
+
+		{{form_widget(playerForm)}}
+
+
+		{# {{form_widget(playerForm.firstname)}} #}
+		{# {{form_row(playerForm.firstname)}} #}
+
+		<input type='submit' value='Enregistrer'/> {{form_end(playerForm)}}
+	</div>
+{% endblock %}

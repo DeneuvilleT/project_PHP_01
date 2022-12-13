@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PlayerRepository::class)]
 class Player
@@ -17,12 +18,17 @@ class Player
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank (message:"Mauvaise proposition")]
+    #[Assert\Length (min:2)]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "Mauvaise proposition")]
+    #[Assert\Length(min: 2)]
     private ?string $lastname = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Assert\LessThan('- 18years', message:"Vous devez avoir au moins 18 ans")]
     private ?\DateTimeInterface $birthdate = null;
 
     #[ORM\Column]
@@ -61,7 +67,7 @@ class Player
 
     public function getFullname(): ?string
     {
-        return $this->lastname.' '. $this->firstname;
+        return $this->lastname.' '.$this->firstname;
     }
 
     public function setLastname(string $lastname): self

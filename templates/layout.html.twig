@@ -2,13 +2,14 @@
 
 {% block body %}
 	<header>
-		<h1>Hello World</h1>
-	</header>
+		<a href="{{path('home_main')}}"><h1>Hello World</h1><a/>
 
-	<main>
-		{# Ici on injecte le contenu des pages #}
-		{% block content %}{% endblock content %}
-	</main>
+		</header>
 
-	<footer></footer>
+		<main>
+			{# Ici on injecte le contenu des pages #}
+			{% block content %}{% endblock content %}
+		</main>
+
+		<footer></footer>
 {% endblock body %}

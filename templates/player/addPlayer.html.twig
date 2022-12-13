@@ -2,19 +2,19 @@
 
 {% block title %}
 	{{parent()}}
-	- testPlayer
+	- Add Player
 {% endblock %}
 
 {% block content %}
 
-	<h2>
+	{# <p>
 		{{player.firstname}}
 		{{player.lastname}}
-	</h2>
+	<p> #}
 
-	<h2>
-		{{player.fullname}}
-	</h2>
+	<p>
+		Le joueur {{player.fullname}} a été ajouté.
+	</p>
 
 	<h2>
    {# Traversing #}

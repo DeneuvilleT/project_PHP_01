@@ -45,3 +45,13 @@ PS C:\Users\Thomas\helloworld> php bin/console make:migration
 <!-- Créer la BDD -->
 PS C:\Users\Thomas\helloworld> php bin/console doctrine:migration:migrate
 <!-- Créer la BDD -->
+
+PS C:\Users\Thomas\helloworld> composer require form validator
+PS C:\Users\Thomas\helloworld> php bin/console make:form
+PS C:\Users\Thomas\helloworld> composer require symfony/validator
+<!-- Create Form -->
+
+PS C:\Users\Thomas\helloworld> composer require symfony/validator
+<!-- Créer un CRUD -->
+PS C:\Users\Thomas\helloworld> php bin/console make:crud
+<!-- Créer un CRUD -->

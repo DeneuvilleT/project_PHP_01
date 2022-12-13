@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	{{parent()}}
+	-
+	{{player.fullname}}
+
+{% endblock %}
+
+{% block content %}
+
+<h2>{{player.firstname}} {{player.lastname}}</h2>
+
+
+<p>Né(e) le : {{player.birthdate | date("d-m-y")}}</p>
+<p>{{player.money}} doublezons</p>
+
+<ul>
+	{% for ticket in player.tickets %}
+		<li>a joué
+			<b>{{ticket.amount}}</b>
+			doublezons sur le numéro
+			<em>{{ticket.magicNumber}}</em>
+			<a href="{{ path('player_remove',{id:player.id}) }}"/>supprimer</li></a>
+		</li>
+	{% endfor %}
+</ul>
+
+{% endblock %}

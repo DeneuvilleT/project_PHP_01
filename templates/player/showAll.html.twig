@@ -1,0 +1,36 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	{{parent()}}
+	- Tous les joueurs
+{% endblock %}
+
+{% block content %}
+
+	<div id='players'>
+
+		<div>
+			<a href="{{path('player_new')}}"/>Ajouter un nouveau joueur</a>
+	</div>
+
+	{# Traversing #}
+
+	{% for player in allPlayers %}
+
+		<a href="{{ path('player_one',{id:player.id}) }}"/><h2>{{player.fullname}}</h2>
+	</a>
+
+	<a href="{{ path('player_update',{id:player.id}) }}"/>mettre à jour</a>
+
+<ul>
+	{% for ticket in player.tickets %}
+		<li>a joué
+			<b>{{ticket.amount}}</b>
+			doublezons sur le numéro
+			<em>{{ticket.magicNumber}}</em>
+			<a href="{{ path('player_remove',{id:player.id}) }}"/>supprimer</li>
+	</a>
+
+</li>{% else %}
+<p>Aucun ticket</p>
+<a href="{{ path('player_remove',{id:player.id}) }}"/>supprimer</li>{% endfor %}</ul>{% endfor %}</div>{% endblock %}
