@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	{{parent()}}
+	- testPlayer
+{% endblock %}
+
+{% block content %}
+
+	<h2>
+		{{player.firstname}}
+		{{player.lastname}}
+	</h2>
+
+	<h2>
+		{{player.fullname}}
+	</h2>
+
+	<h2>
+   {# Traversing #}
+		{% for ticket in player.tickets %}
+			<p>{{ticket.amount}}</p>
+			<p>{{ticket.magicNumber}}</p>
+			<p>{{ticket.player.birthdate | date('d-m-Y H-i-s')}}</p>
+		{% endfor %}
+	</h2>
+
+{% endblock %}

@@ -9,7 +9,7 @@ PS C:\Users\Thomas> symfony new **nom_du_projet**
 PS C:\Users\Thomas\helloworld> symfony serve
 <!-- Lance le serveur -->
 
-PS C:\Users\Thomas\helloworld> symfony stop
+PS C:\Users\Thomas\helloworld> symfony server:stop
 <!-- Stop le serveur -->
 
 PS C:\Users\Thomas> symfony local:php:list
@@ -34,3 +34,14 @@ PS C:\Users\Thomas\helloworld> composer require twig
 
 PS C:\Users\Thomas\helloworld> composer require --dev symfony/profiler-pack
 <!-- Pour la barre d'état -->
+
+PS C:\Users\Thomas> php bin/console make:entity
+<!-- Créer une entité PHP -->
+
+
+PS C:\Users\Thomas\helloworld> php bin/console doctrine:database:create
+<!-- Créer la BDD -->
+PS C:\Users\Thomas\helloworld> php bin/console make:migration
+<!-- Créer la BDD -->
+PS C:\Users\Thomas\helloworld> php bin/console doctrine:migration:migrate
+<!-- Créer la BDD -->
